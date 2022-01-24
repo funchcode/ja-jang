@@ -7,15 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C28B2C632796EA7D001216EA /* ja_jangApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28B2C622796EA7D001216EA /* ja_jangApp.swift */; };
+		C26EF1A427984C0100362856 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26EF1A327984C0000362856 /* RecordView.swift */; };
+		C28B2C632796EA7D001216EA /* DearLoveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28B2C622796EA7D001216EA /* DearLoveApp.swift */; };
 		C28B2C652796EA7D001216EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28B2C642796EA7D001216EA /* ContentView.swift */; };
 		C28B2C672796EA7F001216EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C28B2C662796EA7F001216EA /* Assets.xcassets */; };
 		C28B2C6A2796EA7F001216EA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C28B2C692796EA7F001216EA /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C26EF1A327984C0000362856 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		C28B2C5F2796EA7D001216EA /* ja-jang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ja-jang.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C28B2C622796EA7D001216EA /* ja_jangApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ja_jangApp.swift; sourceTree = "<group>"; };
+		C28B2C622796EA7D001216EA /* DearLoveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DearLoveApp.swift; sourceTree = "<group>"; };
 		C28B2C642796EA7D001216EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C28B2C662796EA7F001216EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C28B2C692796EA7F001216EA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -32,6 +34,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C26EF1A2279830B900362856 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C28B2C642796EA7D001216EA /* ContentView.swift */,
+				C26EF1A327984C0000362856 /* RecordView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C28B2C562796EA7D001216EA = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +62,8 @@
 		C28B2C612796EA7D001216EA /* ja-jang */ = {
 			isa = PBXGroup;
 			children = (
-				C28B2C622796EA7D001216EA /* ja_jangApp.swift */,
-				C28B2C642796EA7D001216EA /* ContentView.swift */,
+				C26EF1A2279830B900362856 /* Views */,
+				C28B2C622796EA7D001216EA /* DearLoveApp.swift */,
 				C28B2C662796EA7F001216EA /* Assets.xcassets */,
 				C28B2C682796EA7F001216EA /* Preview Content */,
 			);
@@ -138,7 +149,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C28B2C652796EA7D001216EA /* ContentView.swift in Sources */,
-				C28B2C632796EA7D001216EA /* ja_jangApp.swift in Sources */,
+				C26EF1A427984C0100362856 /* RecordView.swift in Sources */,
+				C28B2C632796EA7D001216EA /* DearLoveApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
