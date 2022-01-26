@@ -10,32 +10,29 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            NavigationView{
-                Text("")
-                    .navigationBarTitle("기록")
+            NavigationView {
+                RecordView().navigationTitle("Record")
             }
             .tabItem {
+                Image("moon")
                 Text("기록")
-                Image(systemName: "1.square.fill")
-            }.tag(1)
-
-            NavigationView{
-                Text("")
-                    .navigationTitle("통계")
+            }
+            
+            NavigationView {
+                Text("Book").navigationTitle("Book")
             }
             .tabItem {
+                Image("book")
                 Text("통계")
-                Image(systemName: "2.square.fill")
-            }.tag(2)
+            }
 
-            NavigationView{
-                Text("")
-                    .navigationTitle("통계")
+            NavigationView {
+                Text("Settings").navigationTitle("Settings")
             }
             .tabItem {
-                Text("설정")
-                Image(systemName: "3.square.fill")
-            }.tag(3)
+                Image("settings")
+                Text("정보")
+            }
         }
         .font(.headline)
     }

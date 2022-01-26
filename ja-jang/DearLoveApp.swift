@@ -6,25 +6,26 @@
 //
 
 import SwiftUI
-import Foundation
-import UIKit
-
-class ViewController: UIViewController {
-    override func viewDidLoad() {
-        NotificationCenter.default.addObserver(self, selector: #selector(taskFunc), name: UIApplication.willEnterForegroundNotification, object: nil)
-    }
-    
-    @objc func taskFunc() {
-        print(" task Func ")
-    }
-}
 
 @main
 struct DearLoveApp: App {
     
+    @Environment(\.scenePhase) var scenePhase
+    
     var body: some Scene {
-        WindowGroup {
-            RecordView()
+            WindowGroup {
+                ContentView()
+            }.onChange(of: scenePhase) { phase in
+                switch phase {
+                case .background:
+                    print("App is in background")
+                case .active:
+                    print("App is Active")
+                case .inactive:
+                    print("App is Inactive")
+                @unknown default:
+                    print("New App state not yet introduced")
+                }
+            }
         }
-    }
 }
