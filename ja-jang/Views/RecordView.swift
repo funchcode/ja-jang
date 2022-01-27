@@ -8,18 +8,50 @@
 import SwiftUI
 import Combine
 
-let babyStatus2: Dictionary<String, String> = [
-    "sleep": "수면 중",
-    "wake_openEyes": "눈 뜸",
-    "wake_cyring": "움",
-    "wake_whine": "칭얼",
-]
+enum BabyStatus: String {
+    case sleep = "수면 중"
+    case wakeOpenEyes = "눈 뜸"
+    case wakeCrying = "움"
+    case wakeWhine = "칭얼"
+}
+
+//class CurrentRecord {
+//    var startTime: Date
+//    var currentStatus: BabyStatus
+//
+//    init(startTime: Date, currentStatus: BabyStatus) {
+//        self.startTime = startTime
+//        self.currentStatus = currentStatus
+//    }
+//
+//    func update(startTime: Date, currentStatus: BabyStatus) {
+//        self.startTime = startTime
+//        self.currentStatus = currentStatus
+//    }
+//}
+
+struct CurrentRecord {
+    var startTime: Date
+    var currentStatus: BabyStatus
+    
+    init(startTime: Date, currentStatus: BabyStatus) {
+        self.startTime = startTime
+        self.currentStatus = currentStatus
+    }
+}
 
 struct RecordView: View {
-    @State private var babyStatus: String = "수면 중"
+    @State private var currentRecord: CurrentRecord = CurrentRecord(startTime: Date.now, currentStatus: .wakeOpenEyes)
+    @State private var babyStatus: BabyStatus = .wakeOpenEyes
     @State private var count: Int = 0
     @State private var timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
-
+    
+    private var dateFormatter: DateFormatter = {
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        return df
+    }()
+    
     func startRecord() {
     }
     
@@ -27,31 +59,31 @@ struct RecordView: View {
         let timestamp = timestamp()
         print(timestamp)
         
-        let prevStatus = "wake_openEyes"
-        
-        if (prevStatus.elementsEqual(status)) {
+        if ("\(currentRecord.currentStatus)" == status) {
             print("same status" + status)
             return
         }
-        
-        print("save previous status : " + prevStatus)
     
         switch status {
         case "sleep":
             print("current status : " + status)
-            babyStatus = "수면 중"
+            babyStatus = .sleep
+            currentRecord = CurrentRecord(startTime: Date.now, currentStatus: .sleep)
             print("save current status : " + status)
-        case "wake_openEyes":
+        case "wakeOpenEyes":
             print("current status : " + status)
-            babyStatus = "눈뜸"
+            babyStatus =  .wakeOpenEyes
+            currentRecord = CurrentRecord(startTime: Date.now, currentStatus: .wakeOpenEyes)
             print("save current status : " + status)
-        case "wake_crying":
+        case "wakeCrying":
             print("current status : " + status)
-            babyStatus = "움"
+            babyStatus = .wakeCrying
+            currentRecord = CurrentRecord(startTime: Date.now, currentStatus: .wakeCrying)
             print("save current status : " + status)
-        case "wake_whine":
+        case "wakeWhine":
             print("current status : " + status)
-            babyStatus = "칭얼"
+            babyStatus = .wakeWhine
+            currentRecord = CurrentRecord(startTime: Date.now, currentStatus: .wakeWhine)
             print("save current status : " + status)
         default:
             print("current status : " + status)
@@ -77,7 +109,8 @@ struct RecordView: View {
     var body: some View {
         VStack(alignment: .leading) {
             
-            Text(babyStatus)
+            Text(dateFormatter.string(from: currentRecord.startTime))
+            Text(currentRecord.currentStatus.rawValue)
             
             Text(String(count)).onReceive(timer) { _ in
                 count += 1
@@ -109,7 +142,7 @@ struct RecordView: View {
                     // 4. Timer는 이전 실행 중이던 정보와 카운트 정보, 종료 날짜/시간 정보를 저장한 후 리셋
                     // 5. Timer에 Wake.OpenEyes 모드로 실행.
                     // 6. Timer는 클릭한 날짜/시간 정보와 Wake.OpenEyes 모드를 저장
-                record(status: "wake_openEyes")
+                record(status: "wakeOpenEyes")
             }) {
                 Text("눈뜸")
             }
@@ -118,7 +151,7 @@ struct RecordView: View {
                 print("클릭")
                 // wake 모드의 crying
                     // Click Event Wake.OpenEyes와 동일
-                record(status: "wake_crying")
+                record(status: "wakeCrying")
             }) {
                 Text("움")
             }
@@ -127,7 +160,7 @@ struct RecordView: View {
                 print("클릭")
                 // wake 모드의 whine
                     // Click Event Wake.OpenEyes와 동일
-                record(status: "wake_whine")
+                record(status: "wakeWhine")
             }) {
                 Text("칭얼")
             }
