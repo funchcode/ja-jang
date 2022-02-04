@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20C4531E7CC1ACE60BF8281F /* Pods_ja_jang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C25DC41E27A930EE00928111 /* Pods_ja_jang.framework */; };
+		C254E22427A916F10015D477 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C254E22327A916F00015D477 /* GoogleService-Info.plist */; };
 		C26EF1A427984C0100362856 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26EF1A327984C0000362856 /* RecordView.swift */; };
 		C28B2C632796EA7D001216EA /* DearLoveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28B2C622796EA7D001216EA /* DearLoveApp.swift */; };
 		C28B2C652796EA7D001216EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28B2C642796EA7D001216EA /* ContentView.swift */; };
@@ -15,12 +17,32 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		26B816EB2A174B12B48CF377 /* Pods-ja-jang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ja-jang.release.xcconfig"; path = "Target Support Files/Pods-ja-jang/Pods-ja-jang.release.xcconfig"; sourceTree = "<group>"; };
+		3D0D33EE874700A84429AACB /* Pods-ja-jang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ja-jang.debug.xcconfig"; path = "Target Support Files/Pods-ja-jang/Pods-ja-jang.debug.xcconfig"; sourceTree = "<group>"; };
+		AE17D7CEAEED79BA58A955EE /* Pods_ja_jang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ja_jang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C254E22327A916F00015D477 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C25DC41027A930EE00928111 /* absl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = absl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C25DC41127A930EE00928111 /* FBLPromises.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBLPromises.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C25DC41227A930EE00928111 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C25DC41327A930EE00928111 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C25DC41427A930EE00928111 /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C25DC41527A930EE00928111 /* FirebaseFirestoreSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestoreSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C25DC41627A930EE00928111 /* GoogleDataTransport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleDataTransport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C25DC41727A930EE00928111 /* GoogleUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C25DC41827A930EE00928111 /* grpc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = grpc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C25DC41927A930EE00928111 /* gRPCCertificates-Cpp.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = "gRPCCertificates-Cpp.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C25DC41A27A930EE00928111 /* grpcpp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = grpcpp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C25DC41B27A930EE00928111 /* leveldb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = leveldb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C25DC41C27A930EE00928111 /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C25DC41D27A930EE00928111 /* openssl_grpc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = openssl_grpc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C25DC41E27A930EE00928111 /* Pods_ja_jang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_ja_jang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26EF1A327984C0000362856 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		C28B2C5F2796EA7D001216EA /* ja-jang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ja-jang.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28B2C622796EA7D001216EA /* DearLoveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DearLoveApp.swift; sourceTree = "<group>"; };
 		C28B2C642796EA7D001216EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C28B2C662796EA7F001216EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C28B2C692796EA7F001216EA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C2DCE89B27A90D0100F8867D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20C4531E7CC1ACE60BF8281F /* Pods_ja_jang.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,8 +69,11 @@
 		C28B2C562796EA7D001216EA = {
 			isa = PBXGroup;
 			children = (
+				C2DCE89B27A90D0100F8867D /* README.md */,
 				C28B2C612796EA7D001216EA /* ja-jang */,
 				C28B2C602796EA7D001216EA /* Products */,
+				C2DCE86427A6959900F8867D /* Frameworks */,
+				E03A458A2D38A6EB601062E0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +88,7 @@
 		C28B2C612796EA7D001216EA /* ja-jang */ = {
 			isa = PBXGroup;
 			children = (
+				C254E22327A916F00015D477 /* GoogleService-Info.plist */,
 				C26EF1A2279830B900362856 /* Views */,
 				C28B2C622796EA7D001216EA /* DearLoveApp.swift */,
 				C28B2C662796EA7F001216EA /* Assets.xcassets */,
@@ -78,6 +105,38 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		C2DCE86427A6959900F8867D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C25DC41027A930EE00928111 /* absl.framework */,
+				C25DC41127A930EE00928111 /* FBLPromises.framework */,
+				C25DC41227A930EE00928111 /* FirebaseCore.framework */,
+				C25DC41327A930EE00928111 /* FirebaseCoreDiagnostics.framework */,
+				C25DC41427A930EE00928111 /* FirebaseFirestore.framework */,
+				C25DC41527A930EE00928111 /* FirebaseFirestoreSwift.framework */,
+				C25DC41627A930EE00928111 /* GoogleDataTransport.framework */,
+				C25DC41727A930EE00928111 /* GoogleUtilities.framework */,
+				C25DC41827A930EE00928111 /* grpc.framework */,
+				C25DC41927A930EE00928111 /* gRPCCertificates-Cpp.bundle */,
+				C25DC41A27A930EE00928111 /* grpcpp.framework */,
+				C25DC41B27A930EE00928111 /* leveldb.framework */,
+				C25DC41C27A930EE00928111 /* nanopb.framework */,
+				C25DC41D27A930EE00928111 /* openssl_grpc.framework */,
+				C25DC41E27A930EE00928111 /* Pods_ja_jang.framework */,
+				AE17D7CEAEED79BA58A955EE /* Pods_ja_jang.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E03A458A2D38A6EB601062E0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3D0D33EE874700A84429AACB /* Pods-ja-jang.debug.xcconfig */,
+				26B816EB2A174B12B48CF377 /* Pods-ja-jang.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -85,15 +144,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C28B2C6D2796EA7F001216EA /* Build configuration list for PBXNativeTarget "ja-jang" */;
 			buildPhases = (
+				E39ED0AC8FF2B99BA61BE562 /* [CP] Check Pods Manifest.lock */,
 				C28B2C5B2796EA7D001216EA /* Sources */,
 				C28B2C5C2796EA7D001216EA /* Frameworks */,
 				C28B2C5D2796EA7D001216EA /* Resources */,
+				6220A0AE10744394288B1D1E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "ja-jang";
+			packageProductDependencies = (
+			);
 			productName = "ja-jang";
 			productReference = C28B2C5F2796EA7D001216EA /* ja-jang.app */;
 			productType = "com.apple.product-type.application";
@@ -122,6 +185,9 @@
 				Base,
 			);
 			mainGroup = C28B2C562796EA7D001216EA;
+			packageReferences = (
+				C21D758427A68F69001F8E25 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = C28B2C602796EA7D001216EA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -136,12 +202,55 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C254E22427A916F10015D477 /* GoogleService-Info.plist in Resources */,
 				C28B2C6A2796EA7F001216EA /* Preview Assets.xcassets in Resources */,
 				C28B2C672796EA7F001216EA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6220A0AE10744394288B1D1E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ja-jang/Pods-ja-jang-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ja-jang/Pods-ja-jang-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ja-jang/Pods-ja-jang-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E39ED0AC8FF2B99BA61BE562 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ja-jang-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C28B2C5B2796EA7D001216EA /* Sources */ = {
@@ -275,6 +384,7 @@
 		};
 		C28B2C6E2796EA7F001216EA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D0D33EE874700A84429AACB /* Pods-ja-jang.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -303,6 +413,7 @@
 		};
 		C28B2C6F2796EA7F001216EA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26B816EB2A174B12B48CF377 /* Pods-ja-jang.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -351,6 +462,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C21D758427A68F69001F8E25 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = C28B2C572796EA7D001216EA /* Project object */;
 }
