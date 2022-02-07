@@ -7,6 +7,10 @@
 
 import SwiftUI
 import Combine
+import Firebase
+
+var db = Firestore.firestore()
+let user = db.collection("users")
 
 enum BabyStatus: String {
     case sleep = "수면 중"
@@ -15,20 +19,24 @@ enum BabyStatus: String {
     case wakeWhine = "칭얼"
 }
 
-//class CurrentRecord {
-//    var startTime: Date
-//    var currentStatus: BabyStatus
-//
-//    init(startTime: Date, currentStatus: BabyStatus) {
-//        self.startTime = startTime
-//        self.currentStatus = currentStatus
-//    }
-//
-//    func update(startTime: Date, currentStatus: BabyStatus) {
-//        self.startTime = startTime
-//        self.currentStatus = currentStatus
-//    }
-//}
+struct DBRecord {
+    var id: String
+    
+    init(id: String) {
+        self.id = id
+    }
+    
+    func save() {
+        user.document(id).setData([
+            "type": "status",
+            "status": "sleep",
+            "startedAt": "2022-02-07 23:23:23",
+            "finishedAt" : "2022-02-07 23:24:00"
+        ]) { err in
+            print("PRINT: 에러!")
+        }
+    }
+}
 
 struct CurrentRecord {
     var startTime: Date
@@ -73,12 +81,17 @@ struct RecordView: View {
     @State private var babyStatus: BabyStatus = .wakeOpenEyes
     @State private var counter: Int = 0
     @State private var secondTimer = SecondTimer.init()
+    private var userRef = DBRecord.init(id: "hansol")
     
     private var dateFormatter: DateFormatter = {
         let df = DateFormatter()
         df.dateFormat = "yyyy-MM-dd hh:mm:ss"
         return df
     }()
+    
+    func updateCurrentStatus(status: BabyStatus) {
+        babyStatus = status
+    }
     
     func record(status: String) {
         let timestamp = timestamp()
@@ -92,28 +105,29 @@ struct RecordView: View {
         switch status {
         case "sleep":
             print("current status : " + status)
-            babyStatus = .sleep
+            updateCurrentStatus(status: .sleep)
             currentRecord = CurrentRecord(startTime: Date.now, currentStatus: .sleep)
+            userRef.save()
             secondTimer.reset()
             counter = 0
             print("save current status : " + status)
         case "wakeOpenEyes":
             print("current status : " + status)
-            babyStatus =  .wakeOpenEyes
+            updateCurrentStatus(status: .wakeOpenEyes)
             currentRecord = CurrentRecord(startTime: Date.now, currentStatus: .wakeOpenEyes)
             secondTimer.reset()
             counter = 0
             print("save current status : " + status)
         case "wakeCrying":
             print("current status : " + status)
-            babyStatus = .wakeCrying
+            updateCurrentStatus(status: .wakeCrying)
             currentRecord = CurrentRecord(startTime: Date.now, currentStatus: .wakeCrying)
             secondTimer.reset()
             counter = 0
             print("save current status : " + status)
         case "wakeWhine":
             print("current status : " + status)
-            babyStatus = .wakeWhine
+            updateCurrentStatus(status: .wakeWhine)
             currentRecord = CurrentRecord(startTime: Date.now, currentStatus: .wakeWhine)
             secondTimer.reset()
             counter = 0

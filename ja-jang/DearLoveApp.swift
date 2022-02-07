@@ -11,10 +11,10 @@ import Firebase
 @main
 struct DearLoveApp: App {
     @Environment(\.scenePhase) var scenePhase
-    let db = Firestore.firestore()
     init() {
         FirebaseApp.configure()
     }
+    
     var body: some Scene {
             WindowGroup {
                 ContentView()

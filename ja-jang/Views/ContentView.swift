@@ -6,8 +6,23 @@
 //
 
 import SwiftUI
+import Firebase
+
+class Fire: ObservableObject {
+    private var db = Firestore.firestore()
+    func push() {
+        db.collection("users").addDocument(data: [
+            "first": "Ada",
+            "last": "Lovelace",
+            "born": 1815
+        ]) { err in
+            print(err)
+        }
+    }
+}
 
 struct ContentView: View {
+    @ObservedObject private var fire = Fire()
     var body: some View {
         TabView {
             NavigationView {
@@ -19,7 +34,13 @@ struct ContentView: View {
             }
             
             NavigationView {
-                Text("Book").navigationTitle("Book")
+//                Text("Book").navigationTitle("Book")
+                Button(action: {
+                    print("클릭")
+                    fire.push()
+                }) {
+                    Text("쪽쪽이")
+                }
             }
             .tabItem {
                 Image("book")
