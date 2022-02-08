@@ -9,7 +9,6 @@ import SwiftUI
 import Combine
 import Firebase
 
-var db = Firestore.firestore()
 let user = db.collection("users")
 
 enum BabyStatus: String {
@@ -105,6 +104,7 @@ struct RecordView: View {
     @State private var babyStatus: BabyStatus = .wakeOpenEyes
     @State private var counter: Int = 0
     @State private var secondTimer = SecondTimer.init()
+    @EnvironmentObject var userStore: UserStore
     private var userRef = DBRecord.init(id: "hansol")
     
     private var dateFormatter: DateFormatter = {
@@ -132,7 +132,7 @@ struct RecordView: View {
             updateCurrentStatus(status: .sleep)
             currentRecord = CurrentRecord(startTime: Date.now, currentStatus: .sleep)
             userRef.get()
-            userRef.save(startedAt: timestamp)
+            
             secondTimer.reset()
             counter = 0
             print("save current status : " + status)
