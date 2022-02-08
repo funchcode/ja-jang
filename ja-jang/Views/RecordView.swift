@@ -26,14 +26,38 @@ struct DBRecord {
         self.id = id
     }
     
-    func save() {
-        user.document(id).setData([
+    func save(startedAt: String) {
+        user.document(id).collection("history").addDocument(data: [
             "type": "status",
             "status": "sleep",
-            "startedAt": "2022-02-07 23:23:23",
+            "startedAt": startedAt,
             "finishedAt" : "2022-02-07 23:24:00"
         ]) { err in
             print("PRINT: 에러!")
+        }
+    }
+
+    func get() {
+        user.document(id).collection("history").getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("파이어스토어에서 데이터를 조회하는 도중 에러가 발생했습니다.")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                }
+            }
+        }
+    }
+    
+    func getSort() {
+        user.document(id).collection("history").order(by: "startedAt", descending: true).getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("파이어스토어에서 데이터를 조회하는 도중 에러가 발생했습니다.")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                }
+            }
         }
     }
 }
@@ -107,7 +131,8 @@ struct RecordView: View {
             print("current status : " + status)
             updateCurrentStatus(status: .sleep)
             currentRecord = CurrentRecord(startTime: Date.now, currentStatus: .sleep)
-            userRef.save()
+            userRef.get()
+            userRef.save(startedAt: timestamp)
             secondTimer.reset()
             counter = 0
             print("save current status : " + status)
@@ -115,6 +140,7 @@ struct RecordView: View {
             print("current status : " + status)
             updateCurrentStatus(status: .wakeOpenEyes)
             currentRecord = CurrentRecord(startTime: Date.now, currentStatus: .wakeOpenEyes)
+            userRef.getSort()
             secondTimer.reset()
             counter = 0
             print("save current status : " + status)
