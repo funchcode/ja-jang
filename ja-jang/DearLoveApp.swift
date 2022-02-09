@@ -17,7 +17,7 @@ struct DearLoveApp: App {
     
     var body: some Scene {
             WindowGroup {
-                ContentView()
+                HomeView()
 //                RecordView()
             }.onChange(of: scenePhase) { phase in
                 switch phase {

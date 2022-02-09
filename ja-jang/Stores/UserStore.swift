@@ -10,6 +10,7 @@ import Foundation
 class UserStore: ObservableObject {
     let userId: String
     let usersRef = db.collection("users")
+    @Published var histories: [HistoryModel] = []
     
     init(userId: String) {
         self.userId = userId
@@ -29,7 +30,7 @@ class UserStore: ObservableObject {
         }
     }
     
-    func getHistory(descending: Bool, limit: Int) -> Any {
+    func getHistory(descending: Bool, limit: Int) {
         usersRef.document(userId).collection("history").getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("파이어스토어에서 데이터를 조회하는 도중 에러가 발생했습니다.")
@@ -37,6 +38,12 @@ class UserStore: ObservableObject {
             } else {
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
+                    let data = document.data()
+                    let type = data["type"] as? String ?? ""
+                    let status = data["status"] as? String ?? ""
+                    let startedAt = data["startedAt"] as? String ?? ""
+                    let finishedAt = data["finishedAt"] as? String ?? ""
+                    self.histories.append(HistoryModel(type: type, stauts: status, finishedAt: finishedAt, startedAt: startedAt))
                 }
             }
         }
