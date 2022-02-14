@@ -118,6 +118,7 @@ struct RecordView: View {
             print("current status : " + status)
         }
     }
+
     
     func timestamp() -> String {
         let currentDate = Date()
@@ -125,6 +126,15 @@ struct RecordView: View {
         dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let now = dateFormat.string(from: currentDate)
         return now
+    }
+    
+    func displayTimestamp(date: String) -> String {
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let string2Date = dateFormat.date(from: date)
+        dateFormat.dateFormat = "yy/MM/dd HH시 mm분 ss초"
+        let date2String = dateFormat.string(from: string2Date ?? Date())
+        return date2String
     }
     
     var body: some View {
@@ -142,34 +152,54 @@ struct RecordView: View {
                     counter = 0
                     record(status: "sleep")
                 }) {
-                    Text("잠")
+                    HStack {
+                        Image("sleep")
+                        Text("잠")
+                            .foregroundColor(Color("CloudColor"))
+                    }
                 }
 
                 Button(action: {
                     print("클릭")
                     record(status: "wakeOpenEyes")
                 }) {
-                    Text("눈뜸")
+                    HStack {
+                        Image("wakeup")
+                        Text("눈뜸")
+                            .foregroundColor(Color("GroundColor"))
+                    }
                 }
 
                 Button(action: {
                     print("클릭")
                     record(status: "wakeCrying")
                 }) {
-                    Text("움")
+                    HStack {
+                        Image("crying")
+                        Text("움")
+                            .foregroundColor(Color("GroundColor"))
+                    }
                 }
 
                 Button(action: {
                     print("클릭")
                     record(status: "wakeWhine")
                 }) {
-                    Text("칭얼")
+                    HStack {
+                        Image("wakeWhine")
+                        Text("칭얼")
+                            .foregroundColor(Color("GroundColor"))
+                    }
                 }
 
                 Button(action: {
                     print("클릭")
                 }) {
-                    Text("격려")
+                    HStack {
+                        Image("kiss")
+                        Text("격려")
+                            .foregroundColor(Color("SeaColor"))
+                    }
                 }
 
                 Button(action: {
@@ -179,12 +209,27 @@ struct RecordView: View {
                     // 3. 모달 창의 '등록' 버튼 누를 시 이벤트 발생
                     // 4. 등록 이벤트 시 입력한 날짜/시간 정보와 Skill.Encourage 등록
                 }) {
-                    Text("쪽쪽이")
+                    HStack {
+                        Image("bottle")
+                        Text("쪽쪽이")
+                            .foregroundColor(Color("SeaColor"))
+                    }
                 }
                 ScrollView {
                     LazyVStack {
                         ForEach(userStore.self.histories, id: \.self) { s in
-                            Text(s.type)
+                            HStack() {
+                                VStack() {
+                                    Text(s.type)
+                                    Text(s.stauts)
+                                }
+                                Text(
+                                    displayTimestamp(date: s.startedAt)
+                                ).font(.system(size: 10))
+                                Text(
+                                    s.finishedAt
+                                ).font(.system(size: 10))
+                            }
                         }
                     }
                 }
