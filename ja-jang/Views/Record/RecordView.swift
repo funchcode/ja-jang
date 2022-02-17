@@ -9,8 +9,6 @@ import SwiftUI
 import Combine
 import Firebase
 
-let user = db.collection("users")
-
 enum BabyStatus: String {
     case sleep = "수면 중"
     case wakeOpenEyes = "눈 뜸"
