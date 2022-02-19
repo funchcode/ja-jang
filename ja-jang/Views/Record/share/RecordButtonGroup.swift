@@ -9,7 +9,8 @@ import SwiftUI
 
 struct RecordButtonGroup: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("잠")
+            .foregroundColor(Color("CloudColor"))
     }
 }
 
@@ -18,3 +19,4 @@ struct RecordButtonGroup_Previews: PreviewProvider {
         RecordButtonGroup()
     }
 }
+    

@@ -136,7 +136,7 @@ struct RecordView: View {
     }
     
     var body: some View {
-            VStack(alignment: .center) {
+        VStack(alignment: .center) {
                 Text(dateFormatter.string(from: currentRecord.startTime))
                 HStack(alignment: .top) {
                     Text(currentRecord.currentStatus.rawValue)
@@ -144,99 +144,102 @@ struct RecordView: View {
                         counter = Calendar.current.dateComponents([.second], from: currentRecord.startTime, to: Date.now).second!
                     }
                 }
-
-                Button(action: {
-                    print(Calendar.current)
-                    counter = 0
-                    record(status: "sleep")
-                }) {
-                    HStack {
-                        Image("sleep")
-                        Text("잠")
-                            .foregroundColor(Color("CloudColor"))
+                HStack(alignment: .center) {
+                    Button(action: {
+                        print(Calendar.current)
+                        counter = 0
+                        record(status: "sleep")
+                    }) {
+                        VStack {
+                            Image("sleep")
+                            Text("잠")
+                                .foregroundColor(Color("CloudColor"))
+                        }
                     }
-                }
-
-                Button(action: {
-                    print("클릭")
-                    record(status: "wakeOpenEyes")
-                }) {
-                    HStack {
-                        Image("wakeup")
-                        Text("눈뜸")
-                            .foregroundColor(Color("GroundColor"))
+                    
+                    
+                    Button(action: {
+                        print("클릭")
+                        record(status: "wakeOpenEyes")
+                    }) {
+                        VStack {
+                            Image("wakeup")
+                            Text("눈뜸")
+                                .foregroundColor(Color("GroundColor"))
+                        }
                     }
-                }
-
-                Button(action: {
-                    print("클릭")
-                    record(status: "wakeCrying")
-                }) {
-                    HStack {
-                        Image("crying")
-                        Text("움")
-                            .foregroundColor(Color("GroundColor"))
+                    
+                    Button(action: {
+                        print("클릭")
+                        record(status: "wakeCrying")
+                    }) {
+                        VStack {
+                            Image("crying")
+                            Text("움")
+                                .foregroundColor(Color("GroundColor"))
+                        }
                     }
-                }
-
-                Button(action: {
-                    print("클릭")
-                    record(status: "wakeWhine")
-                }) {
-                    HStack {
-                        Image("wakeWhine")
-                        Text("칭얼")
-                            .foregroundColor(Color("GroundColor"))
+                    
+                    Button(action: {
+                        print("클릭")
+                        record(status: "wakeWhine")
+                    }) {
+                        VStack {
+                            Image("wakeWhine")
+                            Text("칭얼")
+                                .foregroundColor(Color("GroundColor"))
+                        }
                     }
-                }
-
-                Button(action: {
-                    print("클릭")
-                }) {
-                    HStack {
-                        Image("kiss")
-                        Text("격려")
-                            .foregroundColor(Color("SeaColor"))
+                    
+                    Button(action: {
+                        print("클릭")
+                    }) {
+                        VStack {
+                            Image("kiss")
+                            Text("격려")
+                                .foregroundColor(Color("SeaColor"))
+                        }
                     }
-                }
-
-                Button(action: {
-                    print("클릭")
-                    // 현재 날짜/시간 정보가 입력된 모달 창 Open
-                    // 2. 시간 수정이 필요한 경우 수정
-                    // 3. 모달 창의 '등록' 버튼 누를 시 이벤트 발생
-                    // 4. 등록 이벤트 시 입력한 날짜/시간 정보와 Skill.Encourage 등록
-                }) {
-                    HStack {
-                        Image("bottle")
-                        Text("쪽쪽이")
-                            .foregroundColor(Color("SeaColor"))
-                    }
-                }
-                ScrollView {
-                    LazyVStack {
-                        ForEach(userStore.self.histories, id: \.self) { s in
-                            HStack() {
-                                VStack() {
-                                    Text(s.type)
-                                    Text(s.stauts)
-                                }
-                                Text(
-                                    displayTimestamp(date: s.startedAt)
-                                ).font(.system(size: 10))
-                                Text(
-                                    s.finishedAt
-                                ).font(.system(size: 10))
-                            }
+                    
+                    Button(action: {
+                        print("클릭")
+                        // 현재 날짜/시간 정보가 입력된 모달 창 Open
+                        // 2. 시간 수정이 필요한 경우 수정
+                        // 3. 모달 창의 '등록' 버튼 누를 시 이벤트 발생
+                        // 4. 등록 이벤트 시 입력한 날짜/시간 정보와 Skill.Encourage 등록
+                    }) {
+                        VStack {
+                            Image("bottle")
+                            Text("쪽쪽이")
+                                .foregroundColor(Color("SeaColor"))
                         }
                     }
                 }
+            
+            ScrollView {
+                List {
+                    Text("A List Item")
+                    Text("A Second List Item")
+                    Text("A Third List Item")
+                }
+            }
+            
         }
+        .padding()
+            .frame(
+                minWidth: 0,
+                maxWidth: .infinity,
+                minHeight: 0,
+                maxHeight: .infinity,
+                alignment: .top
+            )
+            
     }
 }
 
 struct RecordView_Previews: PreviewProvider {
     static var previews: some View {
         RecordView()
+.previewInterfaceOrientation(.portraitUpsideDown)
     }
 }
