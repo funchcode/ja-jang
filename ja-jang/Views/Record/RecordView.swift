@@ -62,6 +62,10 @@ struct RecordView: View {
     
     @ObservedObject var userStore: UserStore = UserStore(userId: "hansol")
     
+    init() {
+        userStore.getHistory(descending: true, limit: 10)
+    }
+    
     private var dateFormatter: DateFormatter = {
         let df = DateFormatter()
         df.dateFormat = "yyyy-MM-dd hh:mm:ss"
@@ -94,7 +98,7 @@ struct RecordView: View {
             print("current status : " + status)
             updateCurrentStatus(status: .wakeOpenEyes)
             currentRecord = CurrentRecord(startTime: Date.now, currentStatus: .wakeOpenEyes)
-            userStore.getHistory(descending: true, limit: 10)
+//            userStore.getHistory(descending: true, limit: 10)
             secondTimer.reset()
             counter = 0
             print("save current status : " + status)
@@ -215,15 +219,15 @@ struct RecordView: View {
                         }
                     }
                 }
-            
+//            RecordList()
             ScrollView {
-                List {
-                    Text("A List Item")
-                    Text("A Second List Item")
-                    Text("A Third List Item")
+                ForEach(userStore.self.histories, id: \.self) { history in
+                    HStack {
+                        Text("04:07")
+                        Text(history.stauts)
+                    }
                 }
             }
-            
         }
         .padding()
             .frame(
