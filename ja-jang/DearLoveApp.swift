@@ -18,7 +18,6 @@ struct DearLoveApp: App {
     var body: some Scene {
             WindowGroup {
                 HomeView()
-//                RecordView()
             }.onChange(of: scenePhase) { phase in
                 switch phase {
                 case .background:

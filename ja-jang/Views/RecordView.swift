@@ -161,7 +161,6 @@ struct RecordView: View {
                         }
                     }
                     
-                    
                     Button(action: {
                         print("클릭")
                         record(status: "wakeOpenEyes")
@@ -219,15 +218,7 @@ struct RecordView: View {
                         }
                     }
                 }
-//            RecordList()
-            ScrollView {
-                ForEach(userStore.self.histories, id: \.self) { history in
-                    HStack {
-                        Text("04:07")
-                        Text(history.stauts)
-                    }
-                }
-            }
+            RecordList()
         }
         .padding()
             .frame(
@@ -237,13 +228,11 @@ struct RecordView: View {
                 maxHeight: .infinity,
                 alignment: .top
             )
-            
     }
 }
 
 struct RecordView_Previews: PreviewProvider {
     static var previews: some View {
         RecordView()
-.previewInterfaceOrientation(.portraitUpsideDown)
     }
 }
