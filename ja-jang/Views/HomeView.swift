@@ -8,7 +8,13 @@
 import SwiftUI
 import Firebase
 
+class VisibleRecordEditor: ObservableObject {
+    @Published public var visible: Bool = false
+}
+
 struct HomeView: View {
+    @State var showSheet: Bool = false
+    @State var visibleEditor = VisibleRecordEditor()
     
     var body: some View {
         TabView {
@@ -19,6 +25,7 @@ struct HomeView: View {
                     Text("기록")
                         .foregroundColor(Color("SignatureColor"))
                 }
+                .environmentObject(visibleEditor)
         }
         .accentColor(Color("SignatureColor"))
         .font(.headline)
@@ -39,6 +46,9 @@ struct HomeView: View {
         
                UITableView.appearance().backgroundColor = UIColor(Color("DefaultColor"))
         }
+        .fullScreenCover(isPresented: $visibleEditor.visible, content: {
+            EditView()
+        })
     }
 }
 

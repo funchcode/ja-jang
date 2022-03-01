@@ -62,6 +62,8 @@ struct RecordView: View {
     
     @ObservedObject var userStore: UserStore = UserStore(userId: "hansol")
     
+    let screenSize = UIScreen.main.bounds
+    
     init() {
         userStore.getHistory(descending: true, limit: 10)
     }
@@ -219,6 +221,11 @@ struct RecordView: View {
                     }
                 }
             RecordList()
+                .frame(
+                    width: screenSize.width,
+                    height: screenSize.height
+                )
+            
         }
         .padding()
             .frame(

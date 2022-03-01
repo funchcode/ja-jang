@@ -8,6 +8,7 @@
 import SwiftUI
 
 class RecordBundler {
+    
     static func bundle(records: [BabyStatuss]) -> [BundleRecords] {
         var dateSet = Set<String>()
         var prevDate: String = ""
@@ -118,7 +119,11 @@ var babyRecord2: [BabyStatuss] = [
     )
 ]
 struct RecordList: View {
-    
+    init() {
+        UITableView.appearance().sectionHeaderTopPadding = 0
+        UITableView.appearance().sectionHeaderHeight = 100
+        UITableView.appearance().sectionFooterHeight = 0
+    }
     var babyRecords: [BundleRecords] = [
         BundleRecords(
             date: "2022.02.12",
@@ -183,15 +188,18 @@ struct RecordList: View {
     @State private var singleSelection : UUID?
     
     var body: some View {
-        List(selection: $singleSelection){
+        List(selection: $singleSelection) {
             ForEach(babyRecords, id: \.self) { recordSet in
                 Section(header: Text("\(recordSet.date)")) {
                     ForEach(recordSet.records) { record in
-                        Text(record.status)
+                        NavigationLink(destination: EditView()){
+                            Text(record.status)
+                        }
                     }
                 }
             }
         }
+        .listStyle(.plain)
     }
 }
 
